@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package BPS;
+
+option go_package = "bps";
+
+enum BpsErrorCode {
+  BPS_ERROR_CODE_INTERNAL = 0;
+  BPS_ERROR_CODE_NOT_EXISTS_ASSET = 1;
+  BPS_ERROR_CODE_NOT_ENOUGH_BALANCE = 2;
+  BPS_ERROR_CODE_INVALID_SECURITY_CODE = 3;
+  BPS_ERROR_CODE_NOT_EXISTS_CURRENCY = 4;
+}
+
+message BpsError {
+  BpsErrorCode error_code = 1;
+  string message = 2;
+}

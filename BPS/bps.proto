@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package BPS;
+
+import "BPS/bps_errors.proto";
+
+option go_package = "balances";
+
+message EmmitBalanceInfo {
+  string currency_name = 1;
+  float amount = 2;
+}
+
+message EmmitBalanceRequest {
+  string id = 1;
+  string asset_id = 2;
+  repeated EmmitBalanceInfo emit_balances_info = 3;
+}
+
+message EmmitBalanceResponse {
+  string id = 1;
+  string asset_id = 2;
+  map<string, BpsError> errors = 3;
+}
+
+message BpsCreateAssetRequest {
+  string id = 1;
+  string security_code = 2;
+  repeated EmmitBalanceInfo emmit_info = 3;
+}
+
+message BpsCreateAssetResponse {
+  string id = 1;
+  string asset_id = 2;
+  map<string, BpsError> errors = 3;
+}
