@@ -2,9 +2,9 @@ syntax = "proto3";
 
 package BPS;
 
-import "BPS/bps_errors.proto";
+import "bps_errors.proto";
 
-option go_package = "balances";
+option go_package = "/balances";
 
 message EmmitBalanceInfo {
   string currency_name = 1;
