@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package BPS;
 
-option go_package = "bps";
+option go_package = "/balances";
 
 enum BpsErrorCode {
   BPS_ERROR_CODE_INTERNAL = 0;
