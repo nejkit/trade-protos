@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package OPS;
+
+option go_package = "/OPS"
+
+enum OpsOrderState {
+    OPS_ORDER_STATE_NEW = 0;
+    OPS_ORDER_STATE_APPROVED = 1;
+    OPS_ORDER_STATE_IN_PROCESS = 2;
+    OPS_ORDER_STATE_PART_FILLED = 3;
+    OPS_ORDER_STATE_FILLED = 4;
+    OPS_ORDER_STATE_DONE = 5;
+    OPS_ORDER_STATE_REJECTED = 6;
+}
+
+enum OpsOrderType {
+    OPS_ORDER_TYPE_MARKET = 0;
+    OPS_ORDER_TYPE_LIMIT = 1;
+}
+
+enum OpsOrderDirection {
+    OPS_ORDER_DIRECTION_BUY = 0;
+    OPS_ORDER_DIRECTION_SELL = 1;
+}

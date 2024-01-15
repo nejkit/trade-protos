@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package OPS;
+
+option go_package = "/OPS";
+
+enum OpsErrorCode {
+    
+}
+
+message OpsError {
+    string message = 1;
+    OpsErrorCode error_code = 2;
+}

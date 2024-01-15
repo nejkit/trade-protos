@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package OPS;
+
+option go_package = "/OPS"
+
+enum OpsTicketOperation {
+    OPS_TICKET_OPERATION_ORDER_CREATION = 0;
+    OPS_TICKET_OPERATION_LOCK_BALANCE = 1;
+    OPS_TICKET_OPERATION_ORDER_CREATION_RESPONSE = 2;
+    OPS_TICKET_OPERATION_APPROVE_CREATION = 3;
+    OPS_TICKET_OPERATION_REFUND_BALANCE = 4;
+    OPS_TICKET_OPERATION_MATCH_ORDER = 5;
+    OPS_TICKET_OPERATION_SAVE_STOCK_BOOK = 6;
+    OPS_TICKET_OPERATION_RECREATE_ORDER = 7;
+    OPS_TICKET_OPERATION_ORDER_NOTIFICATION = 8;
+    OPS_TICKET_OPERATION_DROP_ORDER = 9;
+    OPS_TICKET_OPERATION_GET_ORDER_INFO = 10;
+}
+
+enum OpsTicketState {
+    OPS_TICKET_STATE_NEW = 0;
+    OPS_TICKET_STATE_PROCESS = 1;
+}
+
+message Ticket {
+    string ticket_id = 1;
+    OpsTicketState state = 2;
+    OpsTicketOperation operation_type = 3;
+    bytes data = 4;
+}
