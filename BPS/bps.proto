@@ -59,3 +59,25 @@ message BpsGetAssetInfoResponse {
   repeated BalanceInfo balances_info = 5;
   BpsError error = 6;
 }
+
+message BpsDeactivateAssetRequest {
+  string id = 1;
+  string asset_id = 2;
+  string account_id = 3;
+}
+
+message BpsDeactivateAssetResponse {
+  string id = 1;
+  BpsError error = 2;
+}
+
+message BpsAddCurrencyRequest {
+  string id = 1;
+  string currency_name = 2;
+  string currency_code = 3;
+}
+
+message BpsAddCurrencyResponse {
+  string id = 1;
+  BpsError error = 2;
+}
