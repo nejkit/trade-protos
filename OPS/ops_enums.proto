@@ -20,6 +20,6 @@ enum OpsOrderType {
 }
 
 enum OpsOrderDirection {
-    OPS_ORDER_DIRECTION_BUY = 0;
-    OPS_ORDER_DIRECTION_SELL = 1;
+    OPS_ORDER_DIRECTION_SELL = 0;
+    OPS_ORDER_DIRECTION_BUY = 1;
 }
