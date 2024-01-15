@@ -13,7 +13,7 @@ message OpsCreateOrderRequest {
     string account_id = 2;
     string asset_id = 3;
     string currency_pair = 4;
-    OpsDirection direction = 5;
+    OpsOrderDirection direction = 5;
     double limit_price = 6;
     double ask_volume = 7;
     OpsOrderType type = 8;
@@ -25,7 +25,7 @@ message OpsOrderInfo {
     string account_id = 3;
     string asset_id = 4;
     string currency_pair = 5;
-    OpsDirection direction = 6;
+    OpsOrderDirection direction = 6;
     double limit_price = 7;
     double ask_volume = 8;
     double filled_volume = 9;
