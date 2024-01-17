@@ -19,6 +19,11 @@ message OpsCreateOrderRequest {
     OpsOrderType type = 8;
 }
 
+message OpsMatchOrderRequest {
+    string order_id = 1;
+    OpsOrderType type = 2;
+}
+
 message OpsOrderInfo {
     string id = 1;
     string order_id = 2;
@@ -38,6 +43,7 @@ message OpsOrderInfo {
     string transfer_id = 16;
     OpsOrderState state = 17;
     OpsError cause = 18;
+    string parent_id = 19;
 }
 
 message OpsGetOrderRequest {
@@ -48,7 +54,7 @@ message OpsGetOrderRequest {
 
 message OpsGetOrderResponse {
     string id = 1;
-    OpsOrderInfo order_infos = 2;
+    OpsOrderInfo order_info = 2;
     OpsError error = 3;
 }
 
