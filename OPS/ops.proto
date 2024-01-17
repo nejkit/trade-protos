@@ -44,6 +44,7 @@ message OpsOrderInfo {
     OpsOrderState state = 17;
     OpsError cause = 18;
     string parent_id = 19;
+    string exchange_id = 20;
 }
 
 message OpsGetOrderRequest {
