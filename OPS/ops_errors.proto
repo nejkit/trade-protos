@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package OPS;
 
-option go_package = "/OPS";
+option go_package = "/ops";
 
 enum OpsErrorCode {
     OPS_ERROR_CODE_INTERNAL = 0;

@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package OPS;
 
-option go_package = "/OPS";
+option go_package = "/ops";
 
 enum OpsOrderState {
     OPS_ORDER_STATE_NEW = 0;

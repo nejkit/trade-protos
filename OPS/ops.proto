@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package OPS;
 
-option go_package = "/OPS";
+option go_package = "/ops";
 
 import "ops_enums.proto";
 import "ops_errors.proto";
@@ -17,11 +17,6 @@ message OpsCreateOrderRequest {
     double limit_price = 6;
     double ask_volume = 7;
     OpsOrderType type = 8;
-}
-
-message OpsMatchOrderRequest {
-    string order_id = 1;
-    OpsOrderType type = 2;
 }
 
 message OpsOrderInfo {

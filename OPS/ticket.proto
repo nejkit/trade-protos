@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package OPS;
 
-option go_package = "/OPS";
+option go_package = "/ops";
 
 enum OpsTicketOperation {
     OPS_TICKET_OPERATION_ORDER_CREATION = 0;

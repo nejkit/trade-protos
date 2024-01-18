@@ -5,7 +5,7 @@ package BPS;
 import "bps_errors.proto";
 import "google/protobuf/timestamp.proto";
 
-option go_package = "/balances";
+option go_package = "/bps";
 
 message EmmitBalanceInfo {
   string currency_name = 1;
@@ -105,4 +105,29 @@ message BpsRefundBalanceRequest {
 message BpsRefundBalanceResponse {
   string id = 1;
   BpsError error = 2;
+}
+
+message BpsTransferData {
+  string balance_id = 1;
+  double amount = 2;
+}
+
+enum BpsTransferState {
+  BPS_TRANSFER_STATE_NEW = 0;
+  BPS_TRANSFER_STATE_IN_PROCESS = 1;
+  BPS_TRANSFER_STATE_DONE = 2;
+  BPS_TRANSFER_STATE_REJECTED = 3;
+  BPS_TRANSFER_STATE_ERROR = 4;
+}
+
+message BpsCreateTransferRequest {
+  string id = 1;
+  repeated BpsTransferData transfer_data = 2;
+}
+
+message BpsTransfer {
+  string id = 1;
+  repeated BpsTransferData transfer_data = 2;
+  BpsTransferState transfer_state = 3;
+  BpsError error = 4;
 }
