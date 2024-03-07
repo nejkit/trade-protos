@@ -130,4 +130,6 @@ message BpsTransfer {
   repeated BpsTransferData transfer_data = 2;
   BpsTransferState transfer_state = 3;
   BpsError error = 4;
+  int64 created_at = 5;
+  int64 updated_at = 6;
 }

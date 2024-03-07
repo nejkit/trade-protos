@@ -20,6 +20,7 @@ enum OpsTicketOperation {
 enum OpsTicketState {
     OPS_TICKET_STATE_NEW = 0;
     OPS_TICKET_STATE_PROCESS = 1;
+    OPS_TICKET_STATE_PROCESSED = 2;
 }
 
 message Ticket {
@@ -27,4 +28,6 @@ message Ticket {
     OpsTicketState state = 2;
     OpsTicketOperation operation_type = 3;
     bytes data = 4;
+    int64 created_at = 5;
+    int64 updated_at = 6;
 }

@@ -17,7 +17,7 @@ message OpsCreateOrderRequest {
     double limit_price = 6;
     double ask_volume = 7;
     OpsOrderType type = 8;
-}
+};
 
 message OpsOrderInfo {
     string id = 1;
