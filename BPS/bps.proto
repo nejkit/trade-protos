@@ -108,8 +108,9 @@ message BpsRefundBalanceResponse {
 }
 
 message BpsTransferData {
-  string balance_id = 1;
-  double amount = 2;
+  string from = 1;
+  string to = 2;
+  double amount = 3;
 }
 
 enum BpsTransferState {
