@@ -7,6 +7,26 @@ option go_package = "/ops";
 import "ops_enums.proto";
 import "ops_errors.proto";
 import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+
+service OrdersService {
+    rpc GetOrderHistory(GetOrderHistoryRequest) returns (GetOrderHistoryResponse);
+}
+
+message GetOrderHistoryRequest {
+    string account_id = 1;
+    google.protobuf.StringValue asset_id = 2;
+    google.protobuf.StringValue root_order_id = 3;
+}
+
+message GetOrderHistoryResponse {
+    repeated HierarchyOrderInfo hierarchy = 1;
+}
+
+message HierarchyOrderInfo {
+    OpsOrderInfo root_order = 1;
+    repeated OpsOrderInfo child_orders = 2;
+}
 
 message OpsCreateOrderRequest {
     string id = 1;
@@ -21,25 +41,26 @@ message OpsCreateOrderRequest {
 
 message OpsOrderInfo {
     string id = 1;
-    string order_id = 2;
-    string account_id = 3;
-    string asset_id = 4;
-    string currency_pair = 5;
-    OpsOrderDirection direction = 6;
-    double limit_price = 7;
-    double ask_volume = 8;
-    double filled_volume = 9;
-    OpsOrderType type = 10;
-    double fill_price = 11;
-    google.protobuf.Timestamp creation_date = 12;
-    google.protobuf.Timestamp updated_date = 13;
-    google.protobuf.Timestamp expiration_date = 14;
-    google.protobuf.Timestamp matching_date = 15;
-    string transfer_id = 16;
-    OpsOrderState state = 17;
-    OpsError cause = 18;
-    string parent_id = 19;
-    string exchange_id = 20;
+    string account_id = 2;
+    string currency_pair = 3;
+    OpsOrderDirection direction = 4;
+    double limit_price = 5;
+    double ask_volume = 6;
+    double filled_volume = 7;
+    OpsOrderType type = 8;
+    double fill_price = 9;
+    google.protobuf.Timestamp creation_date = 10;
+    google.protobuf.Timestamp updated_date = 11;
+    google.protobuf.Timestamp expiration_date = 12;
+    OpsOrderState state = 13;
+    OpsError cause = 14;
+    string parent_id = 15;
+    OpsAssetInfo asset_info = 16;
+}
+
+message OpsAssetInfo {
+    string asset_id = 1;
+    string balance_id = 2;
 }
 
 message OpsGetOrderRequest {
@@ -70,6 +91,11 @@ message DeactivateOrderRequest {
     string id = 1;
     string account_id = 2;
     string order_id = 3;
+}
+
+message OpsDeactivateOrdersRequest {
+    string id = 1;
+    string account_id = 2;
 }
 
 message DeactivateOrderResponse {
